@@ -20,9 +20,18 @@
         <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Templates</a>
         <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Contacts</a>
       </div>
-      <div class="hidden lg:flex lg:flex-1 lg:justify-end mr-5">
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center mr-5 text-lg">
+      @auth
+        <a href="#" class="mr-4 font-semibold leading-6 text-gray-900 hover:underline" x-data={} @click.prevent="document.querySelector('#logout').submit()">Log out</a>
+        <form action="/logout" method="post" id="logout" class="hidden">
+          @csrf
+        </form>
+        Welcome back, <span class="font-bold">{{ auth()->user()->username }}</span>
+      @else
         <a href="/login" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+      @endauth
       </div>
+      
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
     <div class="lg:hidden" role="dialog" aria-modal="true">

@@ -20,6 +20,7 @@ Route::get('/', [Controller::class, 'index'])->name('home');
 
 Route::get('/login', [SessionsController::class, 'create']);
 Route::post('/login', [SessionsController::class, 'store']);
+Route::post('/logout', [SessionsController::class, 'destroy']);
 
 Route::get('/register', [RegisterController::class, 'create']);
 Route::post('/register', [RegisterController::class, 'store']);

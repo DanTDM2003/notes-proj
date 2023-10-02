@@ -27,6 +27,13 @@ class SessionsController extends Controller
 
         session()->regenerate();
 
-        return redirect('/')->with('success', 'Successfully create a new account');
+        return redirect('/')->with('success', 'Welcome back!');
+    }
+
+    public function destroy()
+    {
+        auth()->logout();
+
+        return redirect('/')->with('success', 'Goodbye!');
     }
 }
