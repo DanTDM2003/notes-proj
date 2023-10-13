@@ -1,9 +1,9 @@
-<header class="absolute inset-x-0 top-0 z-50">
+<header class="absolute inset-x-0 top-0 z-0">
     <nav class="flex items-center justify-between lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
-        <a href="/home" class="-m-1.5 p-1.5">
+        <a href="/" class="-m-1.5 p-1.5">
           <span class="sr-only">Your Company</span>
-          <img class="w-36 h-27" src="images/notes.png" alt="Notes Logo">
+          <img class="w-36 h-27" src="/images/notes.png" alt="Notes Logo">
         </a>
       </div>
       <div class="flex lg:hidden">
@@ -15,18 +15,18 @@
         </button>
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Your Note</a>
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Templates</a>
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Contacts</a>
+        @auth
+          <a href="/notes" class="text-sm font-semibold leading-6 text-gray-900">Your Notes</a>
+        @endauth
+        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Contact us</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center mr-5 text-lg">
       @auth
-        <a href="#" class="mr-4 font-semibold leading-6 text-gray-900 hover:underline" x-data={} @click.prevent="document.querySelector('#logout').submit()">Log out</a>
+        <a href="#" class="text-sm mr-4 font-semibold leading-6 text-gray-900 hover:underline" x-data={} @click.prevent="document.querySelector('#logout').submit()">Log out</a>
         <form action="/logout" method="post" id="logout" class="hidden">
           @csrf
         </form>
-        Welcome back, <span class="font-bold">{{ auth()->user()->username }}</span>
+        <span class="font-semibold">Welcome back, {{ auth()->user()->username }}!</span>
       @else
         <a href="/login" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
       @endauth
@@ -53,10 +53,8 @@
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Product</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
+              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Your Notes</a>
+              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contacts</a>
             </div>
             <div class="py-6">
               <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>

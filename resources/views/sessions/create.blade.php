@@ -1,9 +1,10 @@
-<x-layout :active="true">
-    <x-panel class="h-2/4 w-1/3 mt-8">
+@include("_header")
+<x-layout :active="true" class="justify-center items-center backdrop-blur-md grid grid-cols-[600px]">
+    <x-panel>
         <h2 class="font-bold text-4xl">Welcome To Notes</h3>
-        <x-input-form.form class="mt-14" action="/login" method="post">
-            <x-input-form.input name="email" type="email" label="Email"></x-input-form.input>
-            <x-input-form.input name="password" type="password" label="Password"></x-input-form.input>
+        <x-input-form.form class="mt-14 w-3/4" action="/login" method="post">
+            <x-input-form.input required name="email" type="email" label="Email"></x-input-form.input>
+            <x-input-form.input required name="password" type="password" label="Password"></x-input-form.input>
             
             <span class="self-center">
                 <button type="submit"

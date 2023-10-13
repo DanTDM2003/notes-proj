@@ -27,7 +27,7 @@ class SessionsController extends Controller
 
         session()->regenerate();
 
-        return redirect('/')->with('success', 'Welcome back!');
+        return redirect('/notes')->with('success', 'Welcome back!');
     }
 
     public function destroy()

@@ -3,11 +3,13 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
+use App\Models\Notes;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Register>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\NoteContent>
  */
-class RegisterFactory extends Factory
+class NoteContentFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +19,8 @@ class RegisterFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'note_id' => Notes::factory(),
+            'content' => fake()->sentence(),
         ];
     }
 }
