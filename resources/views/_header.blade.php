@@ -16,14 +16,14 @@
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
         @auth
-          <a href="/notes" class="text-sm font-semibold leading-6 text-gray-900">Your Notes</a>
-          <a href="/trash" class="text-sm font-semibold leading-6 text-gray-900">Trash</a>
+          <a href="/notes" class="font-semibold leading-6 text-gray-900 hover:underline">Your Notes</a>
+          <a href="/trash" class="font-semibold leading-6 text-gray-900 hover:underline">Trash</a>
         @endauth
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Contact us</a>
+        <a href="#" class="font-semibold leading-6 text-gray-900 hover:underline">Contact us</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center mr-5 text-lg">
       @auth
-        <a href="#" class="text-sm mr-4 font-semibold leading-6 text-gray-900 hover:underline" x-data={} @click.prevent="document.querySelector('#logout').submit()">Log out</a>
+        <a href="#" class="text-sm mt-1 mr-4 font-semibold leading-6 text-gray-900 hover:underline" x-data={} @click.prevent="document.querySelector('#logout').submit()">Log out</a>
         <form action="/logout" method="post" id="logout" class="hidden">
           @csrf
         </form>
