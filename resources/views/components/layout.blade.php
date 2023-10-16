@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <style>
     * {
         box-sizing: border-box;

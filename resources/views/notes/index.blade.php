@@ -3,8 +3,8 @@
     
     <div class="flex justify-between w-[94%]">
         <span class="flex flex-row-reverse gap-1">
-            <x-search-bar></x-search-bar>
-            <x-category-dropdown></x-category-dropdown>
+            <x-search-bar :link="request()->path()"></x-search-bar>
+            <x-category-dropdown :link="request()->path()"></x-category-dropdown>
         </span>
         <x-overlay.modal>
             <x-slot name="trigger">

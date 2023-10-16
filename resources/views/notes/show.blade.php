@@ -8,7 +8,7 @@
                         <li class="relative border-b-2 border-black border-dashed">
                             <x-input-form.form action="/notes/content/{{ $line->id }}" method="post" class="w-full text-[{{ $note->content_color }}]">
                                 @method('patch')
-                                <input type="text" class="bg-transparent focus:outline-none w-4/5" name="content" value="{{ $line->content }}">
+                                <input type="text" class="bg-transparent focus:outline-none w-[95%]" maxlength="45" name="content" value="{{ $line->content }}">
                                 <button type="submit" class="hidden"></button>
                             </x-input-form.form >
                             <x-input-form.form class="absolute right-0 top-1" action="/notes/content/{{ $line->id }}" method="post">
@@ -46,7 +46,7 @@
             <div class="relative w-[70%] mt-56">
                 <x-input-form.form class="flex flex-col bg-white border-4 border-teal-600 rounded-lg w-auto" method="post" action="/notes/{{ $note->slug }}">
                     <input type="hidden" name="note_id" value="{{ $note->id }}">
-                    <textarea required class="bg-transparent resize-none px-4 py-10 h-full focus:outline-none font-bold" id="content" name="content" maxlength="60" minlength="1" cols="40" rows="1" placeholder="Enter your note here..."></textarea>
+                    <textarea required class="bg-transparent resize-none px-4 py-10 h-full focus:outline-none font-bold" id="content" name="content" maxlength="45" minlength="1" cols="40" rows="1" placeholder="Enter your note here..."></textarea>
                     <div class="flex py-1 px-3">
                         <button type="submit"><ion-icon name="send"></ion-icon></button>
                         <div @click="show = !show"><ion-icon class="cursor-pointer" name="happy"></ion-icon></div>
@@ -68,8 +68,7 @@
                 </span>
             </div>
 
-            <form action="/notes/{{ $note->slug }}/color" method="post" class="flex flex-col items-center w-3/4 gap-5 mb-4">
-                @csrf
+            <x-input-form.form action="/notes/{{ $note->slug }}/color" method="post" class="flex flex-col items-center w-3/4 gap-5 mb-4">
                 @method('patch')
                 <div class="grid grid-cols-[150px,_150px] gap-4">
                     <div class="flex flex-col items-center">
@@ -91,7 +90,7 @@
                 </div>
                 
                 <button type="submit" class="px-6 py-2 font-semibold bg-teal-400 rounded-lg">Save</button>
-            </form>
+            </x-input-form.form>
             
         </div>
     </div>

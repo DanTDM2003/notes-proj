@@ -15,14 +15,23 @@
         <span class="mt-2 ml-1 text-sm text-gray-500">{{ $note->created_at->diffForHumans() }}</span>
 
         <div class="flex flex-row-reverse gap-1 mr-2">
-            <form action="/notes/{{ $note->slug }}" method="post">
-                @csrf
-                @method('delete')
-    
-                <button><ion-icon name="trash-bin-outline"></ion-icon></button>
-            </form>
+            @if (request()->fullUrlIs('*/notes'))
+                <x-input-form.form method="post" action="/trash/{{ $note->slug }}">
+                    @method('patch')
+                    <button><ion-icon name="trash-bin-outline"></ion-icon></button>
+                </x-input-form.form>
+            @else
+                <x-input-form.form method="post" action="/revive/{{ $note->slug }}">
+                    @method('patch')
+                    <button><ion-icon name="refresh-circle"></ion-icon></button>
+                </x-input-form.form>
+
+                <x-input-form.form action="/notes/{{ $note->slug }}" method="post">
+                    @method('delete')
+                    <button><ion-icon name="trash-bin-outline"></ion-icon></button>
+                </x-input-form.form>
+            @endif
             <a href="/notes/edit/{{ $note->slug }}"><ion-icon name="create-outline"></ion-icon></a>
-            
         </div>
     </div>
 </div>

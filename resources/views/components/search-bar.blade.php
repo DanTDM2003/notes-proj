@@ -1,4 +1,6 @@
-<form action="/notes" method="get" {{ $attributes(['class' => ''])}}>
+@props(['link'])
+
+<form action="/{{ $link }}" method="get" {{ $attributes(['class' => '']) }}>
     @if (request('category'))
         <input type="hidden" name="category" value="{{ request('category') }}">
     @endif

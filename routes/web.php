@@ -6,6 +6,7 @@ use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\NotesController;
 use App\Http\Controllers\NoteContentController;
 use App\Http\Controllers\NoteColorController;
+use App\Http\Controllers\NoteTrashController;
 use App\Http\Controllers\Controller;
 
 /*
@@ -37,5 +38,9 @@ Route::get('/notes/edit/{note:slug}', [NotesController::class, 'edit'])->middlew
 Route::patch('notes/{note:slug}/color', [NoteColorController::class, 'update'])->middleware('auth');
 
 Route::post('/notes/{note:slug}', [NoteContentController::class, 'store'])->middleware('auth');
-Route::delete('notes/content/{content:id}', [NoteContentController::class, 'delete'])->middleware('auth');
-Route::patch('notes/content/{content:id}', [NoteContentController::class, 'update'])->middleware('auth');
+Route::delete('/notes/content/{content:id}', [NoteContentController::class, 'delete'])->middleware('auth');
+Route::patch('/notes/content/{content:id}', [NoteContentController::class, 'update'])->middleware('auth');
+
+Route::get('/trash', [NoteTrashController::class, 'index'])->name('home')->middleware('auth');
+Route::patch('/trash/{note:slug}', [NoteTrashController::class, 'update'])->middleware('auth');
+Route::patch('/revive/{note:slug}', [NoteTrashController::class, 'revive'])->middleware('auth');

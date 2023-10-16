@@ -17,6 +17,7 @@
       <div class="hidden lg:flex lg:gap-x-12">
         @auth
           <a href="/notes" class="text-sm font-semibold leading-6 text-gray-900">Your Notes</a>
+          <a href="/trash" class="text-sm font-semibold leading-6 text-gray-900">Trash</a>
         @endauth
         <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Contact us</a>
       </div>
